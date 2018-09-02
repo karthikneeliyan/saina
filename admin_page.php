@@ -138,7 +138,7 @@ echo '<!DOCTYPE html>
                             <div class="admin-card">
                                 <div class="card-title">
                                     <h4 style="text-align: center;">
-                                        View Drivers
+                                         Drivers Details
                                     </h4>
                                         
                                 </div>
@@ -150,13 +150,13 @@ echo '<!DOCTYPE html>
 
                                         <thead>
                                             <tr>
-                                                <th style="width:15%;">Driver Name</th>
-                                                <th style="width:10%;">Primary Contact Number</th>
-                                                <th style="width:10%;">Secondary Contact Number</th>
+                                                <th style="width:5%;">Name</th>
+                                                <th style="width:20%;">Contact</th>
+                                              
                                                 <th style="width:10%;">Email</th>
                                                 <th style="width:15%;">Aadhar No</th>
-                                                <th style="width:25%;">Driving Licence No</th>
-                                                <th style="width:25%;">Address</th>
+                                                <th style="width:15%;">Driving Licence No</th>
+                                                <th style="width:35%;">Address</th>
                                             </tr>
                                         </thead>
                                         <tbody>'; include_once 'db.php'; $sql = "SELECT name,primary_contact_no,secondary_contact_no,email_id,aadhar_no,driver_license_no,address
@@ -167,13 +167,13 @@ echo '<!DOCTYPE html>
                                             foreach ($result as $data) // using foreach to display each element of array
                                             { echo "
                                             <tr id='tr1'>
-                                                <td style='width:15%;'>" . $data['name'] . "</td>
+                                                <td style='width:5%;'>" . $data['name'] . "</td>
                                                 <td style='width:10%;'>" . $data['primary_contact_no'] . "</td>
-                                                <td style='width:10%;'>" . $data['secondary_contact_no'] . "</td>
+                                                
                                                 <td style='width:10%;'>" . $data['email_id'] . "</td>
                                                 <td style='width:15%;'>" . $data['aadhar_no'] . "</td>
-                                                <td style='width:25%;'>" . $data['driver_license_no'] . "</td>
-                                                <td style='width:25%;'>" . $data['address'] . "</td>
+                                                <td style='width:15%;'>" . $data['driver_license_no'] . "</td>
+                                                <td style='width:35%;'>" . $data['address'] . "</td>
                                             </tr>"; }; echo '</tbody>
                                     </table>
                                 </div>
@@ -204,17 +204,17 @@ echo '<!DOCTYPE html>
                                             <div class="form-group">
                                                 <label for="Name" class="col-sm-2 control-label">Name</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-control input-sm" name="DriverName" id="Name" placeholder="Enter your Name" >
+                                                <input type="text" class="form-control input-sm" name="DriverName" id="Name" placeholder="Enter driver Name" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="contactNo" class="col-sm-2 control-label">Contact No</label>
+                                                <label for="Primary contactNo" class="col-sm-2 control-label">Primary Contact No</label>
                                                 <div class="col-sm-10">
-                                                    <input type="number" class="form-control input-sm" name="DriverpriContact" id="primcontactNo" placeholder="Enter your Primary Contact Number">
+                                                    <input type="number" class="form-control input-sm" name="DriverpriContact" id="primcontactNo" placeholder="Enter your Primary Contact Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="contactNo" class="col-sm-2 control-label">Contact No</label>
+                                                <label for="Secondary contactNo" class="col-sm-2 control-label">Secondary Contact No</label>
                                                 <div class="col-sm-10">
                                                     <input type="number" class="form-control input-sm" name="DriverSecContact" id="seccontactNo" placeholder="Enter your Secondary Contact Number">
                                                 </div>
@@ -222,7 +222,7 @@ echo '<!DOCTYPE html>
                                             <div class="form-group">
                                                 <label for="address" class="col-sm-2 control-label">Address</label>
                                                 <div class="col-sm-10">
-                                                <textarea type="text" class="form-control input-sm" name="DriverAddress" id="address" rows="3" placeholder="Enter your Address"></textarea>
+                                                <textarea type="text" class="form-control input-sm" name="DriverAddress" id="address" rows="3" placeholder="Enter your Address" required></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -234,7 +234,7 @@ echo '<!DOCTYPE html>
                                             <div class="form-group">
                                                 <label for="aadharNo" class="col-sm-2 control-label">Aadhar No</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control input-sm" name="DriverAadharNo" id="aadharNo" placeholder="Enter your Aadhar Number">
+                                                    <input type="text" class="form-control input-sm" name="DriverAadharNo" id="aadharNo" placeholder="Enter your Aadhar Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -246,7 +246,7 @@ echo '<!DOCTYPE html>
                                             <div class="form-group">
                                                 <label for="licenseNo" class="col-sm-2 control-label">Driving License No</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control input-sm" name="DriverLicenseNo"  id="licenseNo" placeholder="Enter your Driving  Number">
+                                                    <input type="text" class="form-control input-sm" name="DriverLicenseNo"  id="licenseNo" placeholder="Enter your Driving  Number" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">

@@ -5,7 +5,7 @@ error_reporting(E_ERROR | E_PARSE);
       
 $stmt = $mysqli->prepare("INSERT INTO driver_details (name,email_id,primary_contact_no,secondary_contact_no,aadhar_no,driver_license_no,address,licence_img)
    VALUES (?, ?,?, ?, ?, ?,?,?)");
-$stmt->bind_param("ssssssss",$driver_name,$email_id,$primary_contact_no,$sec_contact_no,$aadharno,$licenceno,$address,$licencepic);
+$stmt->bind_param("ssssssss",$driver_name,$email_id,$primary_contact_no,$sec_contact_no,$aadharno,$licenceno,$address,$licensepic);
 
 $driver_name="";
 $email_id="";
@@ -15,7 +15,7 @@ $address ="";
 $aadharno="";
 $aadharpic="";
 $licenceno="";
-$licencepic="";
+$licensepic="";
 $dDta="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,13 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = test_input($_POST['DriverAddress']);
    
     
-    //college_addresso = test_input($_POST['address']);
     $aadharno = test_input($_POST['DriverAadharNo']);
-    $aadharpic = $_FILES["aadharpic"]["name"];
-    $aadharpic=imageFunctioner($aadharpic);
+    $aadharpic=imageFunctioner("aadharpic");
     $licenceno = test_input($_POST['DriverLicenseNo']);
-    $licencepic = $_FILES["licensepic"]["name"];
-    $licencepic=imageFunctioner($licencepic);
+    $licensepic=imageFunctioner("licensepic");
     
  }
  
@@ -43,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     return $data;
  }
   
-function imageFunctioner($logo)
+function imageFunctioner($logos)
 {
    
-    //$logo=($_FILES['image']['tmp_name']);
+    $logo=($_FILES[$logos]['tmp_name']);
     $logo= file_get_contents($logo);
     
     $logo= base64_encode($logo);
